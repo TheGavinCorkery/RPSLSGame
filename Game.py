@@ -19,7 +19,7 @@ class Game:
                 player_one = input("What is your name?")
                 player_two = "Player2"
             elif user_input == '2':
-                print("\nYou have selected multiplayer! Player two, please enter your name below. ")
+                print("You have selected multiplayer! please enter your name below. ")
                 player_one = input("Player 1, what is your real name??")
                 player_two = input("What is player 2's name?")
             else:
