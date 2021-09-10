@@ -45,7 +45,17 @@ class Game:
         # 4 — scissors 
         #each choice wins against the preceding two choices and loses against the following two choices 
         # (if rock and scissors are thought of as being adjacent using modular arithmetic).
-        pass
+        if player1 == "rock":
+            player1num = int(0)
+        if player1 == "Spock":
+            player1num = int(1)
+        if player1 == "paper":
+            player1num = int(2)
+        if player1 == "lizard":
+            player1num = int(3)
+        if player1 == "scissors":
+            player1num = int(4)
+        
 
     def best_of_wins(self):
         pass
