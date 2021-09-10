@@ -1,6 +1,11 @@
 from Player import Player
+import random
 
 class AI(Player):
-    pass
+    def __init__(self):
+        super().__init__()
+        self.name = 'Computer'
 
-#Commit
+    def choose_gesture(self):
+        chosen_gesture = random.random(0, 5)
+        self.gesture_choice = chosen_gesture

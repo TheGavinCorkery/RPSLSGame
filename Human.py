@@ -1,4 +1,9 @@
 from Player import Player
 
 class Human(Player):
-    pass
+    def __init__(self):
+        self.name = ''
+        super().__init__()
+
+    def set_name(self, name):
+        self.name = name
