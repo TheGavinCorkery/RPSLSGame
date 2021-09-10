@@ -3,6 +3,7 @@ class Player:
         self.gestures = ['Rock', 'Spock', 'Paper', 'Lizard', 'Scissors']
         self.gesture_choice = 0
         self.players = []
+        self.round_wins = 0
         
     def set_gesture_choice(self, choice):
         self.gesture_choice = choice

@@ -48,9 +48,11 @@ class Game:
         pass
 
     def best_of_wins(self):
-
         pass
-    def score_tracker(self):
-        pass
-    def display_winner(self):
-        pass
+    def score_tracker(self, winner):
+        winner.round_wins += 1
+    def display_winner(self, player1, player2):
+        if player1.round_wins > player2.round_wins:
+            print('Player 1 has won!')
+        else:
+            print('Player 2 has won!')
