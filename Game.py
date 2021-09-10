@@ -18,14 +18,17 @@ class Game:
                 print("You have selected single-player! You will play against an AI opponent.")
                 name = input("What is your name?")
                 player_one = Human(name)
+                player_one.add_player(player_one)
                 player_two = AI()
 
             elif user_input == '2':
                 print("You have selected multiplayer! please enter your name below. ")
                 player_one_name = input("Player 1, what is your real name??")
                 player_two_name = input("What is player 2's name?")
-                player_one = Human(name)
-                player_two = Human(name)
+                player_one = Human(player_one_name)
+                player_one.add_player(player_one)
+                player_two = Human(player_two_name)
+                player_two.add_player(player_two)
             else:
                 user_input = 'playerz'
                 print("Let's make a logical selection here")
