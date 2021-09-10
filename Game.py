@@ -27,7 +27,7 @@ class Game:
                 print("Let's make a logical selection here")
         self.player_one = player_one
         self.player_two = player_two
-    def compareplayerchoices(self, player1, player2):
+    def compare_player_choices(self, player1, player2):
         # Rock crushes Scissors
         # Rock crushes Lizard
         # Paper covers Rock
@@ -47,7 +47,7 @@ class Game:
         # (if rock and scissors are thought of as being adjacent using modular arithmetic).
         pass
 
-    def bestofwins(self):
+    def best_of_wins(self):
 
         pass
     def score_tracker(self):
