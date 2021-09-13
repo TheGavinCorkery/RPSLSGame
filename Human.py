@@ -6,5 +6,12 @@ class Human(Player):
         super().__init__()
 
     def set_name(self):
-        name = input("What is your name? ")
+        name = None
+        while name == None:
+            name = input("What is your name? ")
+            if name.replace(" ", "").isalpha():
+                pass
+            else:
+                print('Please enter a valid name.')
+                name = None
         self.name = name
