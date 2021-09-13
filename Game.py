@@ -69,7 +69,7 @@ class Game:
         self.players[winner].round_wins += 1
 
     def display_winner(self):
-        if self.players[0].round_wins > self.players[1].round_wins:
+        if self.players[0].round_wins >= self.score_to_win:
             print('Player 1 has won!')
-        else:
+        elif self.players[1].round_wins >= self.score_to_win:
             print('Player 2 has won!')
