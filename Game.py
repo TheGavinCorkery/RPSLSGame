@@ -12,12 +12,12 @@ class Game:
         pass
     def player_selection(self):
         player_one = Human()
-        user_input = 'playerz'
-        while user_input == 'playerz':
+        user_input = ''
+        while user_input == '':
             user_input = input("Would you like to play single-player or multiplayer? Enter '1' for single-player or '2' for multiplayer.")
             if user_input == '1':
                 print("You have selected single-player! You will play against an AI opponent.")
-                player_one.set_name = input("What is your name?")
+                player_one.set_name()
                 player_two = AI()
                 self.players.append(player_one)
                 self.players.append(player_two)
@@ -25,13 +25,15 @@ class Game:
             elif user_input == '2':
                 player_two = Human()
                 print("You have selected multiplayer! please enter your name below. ")
-                player_one.set_name = input("Player 1, what is your real name??")
-                player_two.set_name = input("What is player 2's name?")
+                print('Player one:')
+                player_one.set_name()
+                print('Player two:')
+                player_two.set_name()
                 self.players.append(player_one)
                 self.players.append(player_two)
                 
             else:
-                user_input = 'playerz'
+                user_input = ''
                 print("Let's make a logical selection here")
         
         # print(self.player_one.name)
