@@ -97,8 +97,14 @@ class Game:
     def pick_a_card(self, player):
         if player.name != "Computer":
             player.display_gesture_choices()
+            thechosenone = None
 
-            thechosenone = int(input("Pick a your gesture"))
+            while thechosenone == None:
+                thechosenone = int(input("Pick your gesture: "))
+                if thechosenone < 0 or thechosenone > 4:
+                    print('Please choose a choice between 0 and 4')
+                    thechosenone = None
+
             player.gesture_choice = thechosenone
 
         else:
