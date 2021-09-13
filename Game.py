@@ -35,6 +35,7 @@ class Game:
             self.pick_a_card(self.players[0])# display gestures and collect choices
             self.pick_a_card(self.players[1])
             self.compare_player_choices(self.players[0].gesture_choice, self.players[1].gesture_choice)# compare choices
+            print('Player 1 has ', self.players[0].round_wins, ' wins, Player 2 has ', self.players[1].round_wins, ' wins')
             nowinner = self.best_of_wins()# check scores
         if nowinner == False:
             self.display_winner()
@@ -70,10 +71,10 @@ class Game:
         # print(self.player_one.name)
         # print(self.player_two.name)
     def compare_player_choices(self, player1, player2):
-        print('player 1s choice = ', player1)
-        print('player 2 choice: ', player2)
+        # print('player 1s choice = ', player1)
+        # print('player 2 choice: ', player2)
         comparator = ((player1 - player2) % 5)
-        print('compare value: ', comparator)
+        # print('compare value: ', comparator)
         if comparator == 1 or comparator == 2:
             print ("Player 1 wins!")
             self.players[0].round_wins += 1
