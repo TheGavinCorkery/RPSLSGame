@@ -50,10 +50,10 @@ class Game:
             print ("It's a tie")
         return ""
         
-    def best_of_wins(self, scoretowin):
-        if self.player_one.score >= int(scoretowin):
+    def best_of_wins(self):
+        if self.players[0].round_wins >= self.score_to_win:
             pass
-        elif self.player_two.score >= int(scoretowin):
+        elif self.players[1].round_wins >= self.score_to_win:
             pass
 
     def pick_a_card(self, player):
@@ -66,9 +66,10 @@ class Game:
             return thechosenone
             
     def score_tracker(self, winner):
-        winner.round_wins += 1
-    def display_winner(self, player1, player2):
-        if player1.round_wins > player2.round_wins:
+        self.players[winner].round_wins += 1
+
+    def display_winner(self):
+        if self.players[0].round_wins > self.players[1].round_wins:
             print('Player 1 has won!')
         else:
             print('Player 2 has won!')
