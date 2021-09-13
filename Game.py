@@ -99,7 +99,7 @@ class Game:
             thechosenone = None
 
             while thechosenone == None:
-                thechosenone = int(input("Pick a your gesture"))
+                thechosenone = int(input("Pick your gesture: "))
                 if thechosenone < 0 or thechosenone > 4:
                     print('Please choose a choice between 0 and 4')
                     thechosenone = None
