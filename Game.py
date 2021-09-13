@@ -27,6 +27,7 @@ class Game:
         
 
     def play_match(self):
+        self.score_to_win = int(self.set_match_game())
         nowinner = True
         roundcounter = 0
         while nowinner == True:
@@ -104,11 +105,25 @@ class Game:
             thechosenone = player.choose_gesture()
             return thechosenone
             
-    def score_tracker(self, winner):
-        self.players[winner].round_wins += 1
-
     def display_winner(self):
         if self.players[0].round_wins >= self.score_to_win:
             print('Player 1 has won the entire game!')
         elif self.players[1].round_wins >= self.score_to_win:
             print('Player 2 has won the entire game!')
+    
+    def set_match_game(self):
+        setscore = True
+        while setscore:
+            getmatchscore = int(input('Do you want to play best of 3, 5, or 7?'))
+            if getmatchscore == 3:
+                setscore = False
+                return 2
+            elif getmatchscore == 5:
+                setscore = False
+                return 3
+            elif getmatchscore == 7:
+                setscore = False
+                return 5
+            else:
+                print("Please enter 3, 5, or 7")
+            
