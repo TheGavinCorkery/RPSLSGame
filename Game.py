@@ -83,6 +83,6 @@ class Game:
 
     def display_winner(self):
         if self.players[0].round_wins >= self.score_to_win:
-            print('Player 1 has won!')
+            print('Player 1 has won the entire game!')
         elif self.players[1].round_wins >= self.score_to_win:
-            print('Player 2 has won!')
+            print('Player 2 has won the entire game!')
