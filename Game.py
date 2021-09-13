@@ -3,6 +3,7 @@ from Human import Human
 
 class Game:
     def __init__(self):
+        self.players = []
         self.score_to_win = 2
     def run_game(self):
         pass        
@@ -18,12 +19,16 @@ class Game:
                 print("You have selected single-player! You will play against an AI opponent.")
                 player_one.set_name = input("What is your name?")
                 player_two = AI()
+                self.players.append(player_one)
+                self.players.append(player_two)
                 
             elif user_input == '2':
                 player_two = Human()
                 print("You have selected multiplayer! please enter your name below. ")
                 player_one.set_name = input("Player 1, what is your real name??")
                 player_two.set_name = input("What is player 2's name?")
+                self.players.append(player_one)
+                self.players.append(player_two)
                 
             else:
                 user_input = 'playerz'
