@@ -10,7 +10,7 @@ class Game:
         roundcounter = 0
         self.welcome_message() #Display welcome/rules
         self.player_selection()# Get # of players
-        while nowinner:
+        while nowinner == True:
             roundcounter+=1
             print('Round ', roundcounter, " fight!:")
             self.pick_a_card(self.players[0])# display gestures and collect choices
@@ -62,9 +62,9 @@ class Game:
         return ""
         
     def best_of_wins(self):
-        if self.players[0].round_wins >= self.score_to_win:
+        if self.players[0].round_wins == self.score_to_win:
             return False
-        elif self.players[1].round_wins >= self.score_to_win:
+        elif self.players[1].round_wins == self.score_to_win:
             return False
         else:
             return True
