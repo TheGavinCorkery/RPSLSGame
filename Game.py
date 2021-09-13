@@ -17,7 +17,7 @@ class Game:
     def keep_playing_game(self):
         continue_game = 0
         while continue_game == 0:
-            continue_game = int(input('Would you like to continue playing? If yes enter 1 if no enter 2: '))
+            continue_game = input('Would you like to continue playing? If yes enter 1 if no enter 2: ')
             if continue_game == 1:
                 return True
             elif continue_game == 2:
@@ -28,6 +28,7 @@ class Game:
 
     def play_match(self):
         self.score_to_win = int(self.set_match_game())
+        print("You need ", self.score_to_win, " round wins, to win the game.")
         nowinner = True
         roundcounter = 0
         while nowinner == True:
@@ -119,7 +120,7 @@ class Game:
     
     def set_match_game(self):
         setscore = True
-        while setscore:
+        while setscore == True:
             getmatchscore = int(input('Do you want to play best of 3, 5, or 7?'))
             if getmatchscore == 3:
                 setscore = False
@@ -132,4 +133,5 @@ class Game:
                 return 5
             else:
                 print("Please enter 3, 5, or 7")
+                setscore = True
             
