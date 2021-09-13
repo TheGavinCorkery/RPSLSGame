@@ -6,10 +6,21 @@ class Game:
         self.players = []
         self.score_to_win = 2
     def run_game(self):
-        pass        
+        nowinner = True
+        roundcounter = 0
+        self.welcome_message() #Display welcome/rules
+        self.player_selection()# Get # of players
+        while nowinner:
+            roundcounter+=1
+            print('Round ', roundcounter, " fight!:")
+            self.pick_a_card(self.players[0])# display gestures and collect choices
+            self.pick_a_card(self.players[1])
+            self.compare_player_choices(self.players[0].gesture_choice,self.players[1].gesture_choice)# compare choices
+            nowinner = self.best_of_wins()# check scores
+        if nowinner == False:
+            self.display_winner()
     def welcome_message(self):
-        #### Display rules and welcome
-        pass
+        print("Welcome to the game of Rock Paper Scissors Lizard Spock\n\n Scissors decapitate Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it always has, rock crushes scissors\n\n\n Good luck, and may the odds be in your favor!")
     def player_selection(self):
         player_one = Human()
         user_input = ''
@@ -39,12 +50,12 @@ class Game:
         # print(self.player_one.name)
         # print(self.player_two.name)
     def compare_player_choices(self, player1, player2):
-        comparator = ((int(player1) - int(player2)) % 5)
+        comparator = ((player1 - player2) % 5)
         if comparator == 1 or comparator == 2:
             print ("Player 1 wins!")
-            player1.round_wins += 1
+            self.players[0].round_wins += 1
         elif comparator == 3 or comparator == 4:
-            player2.round_wins += 1
+            self.players[1].round_wins += 1
             print ("Player 2 wins!")
         else:
             print ("It's a tie")
@@ -52,14 +63,16 @@ class Game:
         
     def best_of_wins(self):
         if self.players[0].round_wins >= self.score_to_win:
-            pass
+            return False
         elif self.players[1].round_wins >= self.score_to_win:
-            pass
+            return False
+        else:
+            return True
 
     def pick_a_card(self, player):
         if player.name != "Computer":
             player.display_gesture_choices()
-            thechosenone = int(input("Pick a your gesture")) - 1
+            thechosenone = int(input("Pick a your gesture"))
             return thechosenone
         else:
             thechosenone = player.choose_gesture()
