@@ -3,8 +3,6 @@ from Human import Human
 
 class Game:
     def __init__(self):
-        self.player_one = ''
-        self.player_two = ''
         self.score_to_win = 2
     def run_game(self):
         pass        
@@ -30,8 +28,7 @@ class Game:
             else:
                 user_input = 'playerz'
                 print("Let's make a logical selection here")
-        self.player_one = player_one
-        self.player_two = player_two
+        
         # print(self.player_one.name)
         # print(self.player_two.name)
     def compare_player_choices(self, player1, player2):
