@@ -5,11 +5,30 @@ class Game:
     def __init__(self):
         self.players = []
         self.score_to_win = 2
+        self.continue_playing = True
     def run_game(self):
-        nowinner = True
-        roundcounter = 0
         self.welcome_message() #Display welcome/rules
         self.player_selection()# Get # of players
+        while self.continue_playing == True:
+            self.play_match() #Plays the match
+            self.continue_playing = self.keep_playing_game()
+        
+            
+    def keep_playing_game(self):
+        continue_game = 0
+        while continue_game == 0:
+            continue_game = int(input('Would you like to continue playing? If yes enter 1 if no enter 2: '))
+            if continue_game == 1:
+                return True
+            elif continue_game == 2:
+                return False
+            else:
+                continue_game = 0
+        
+
+    def play_match(self):
+        nowinner = True
+        roundcounter = 0
         while nowinner == True:
             roundcounter+=1
             print('Round ', roundcounter, " fight!:")
@@ -19,13 +38,14 @@ class Game:
             nowinner = self.best_of_wins()# check scores
         if nowinner == False:
             self.display_winner()
+
     def welcome_message(self):
         print("Welcome to the game of Rock Paper Scissors Lizard Spock\n\n Scissors decapitate Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it always has, rock crushes scissors\n\n\n Good luck, and may the odds be in your favor!")
     def player_selection(self):
         player_one = Human()
         user_input = ''
         while user_input == '':
-            user_input = input("Would you like to play single-player or multiplayer? Enter '1' for single-player or '2' for multiplayer.")
+            user_input = input("Would you like to play single-player or multiplayer? Enter '1' for single-player or '2' for multiplayer: ")
             if user_input == '1':
                 print("You have selected single-player! You will play against an AI opponent.")
                 player_one.set_name()
@@ -72,7 +92,7 @@ class Game:
     def pick_a_card(self, player):
         if player.name != "Computer":
             player.display_gesture_choices()
-            thechosenone = int(input("Pick a your gesture"))
+            thechosenone = int(input("Pick a your gesture: "))
             return thechosenone
         else:
             thechosenone = player.choose_gesture()
